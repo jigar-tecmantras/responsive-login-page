@@ -1,0 +1,173 @@
+:root {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  color: #0f172a;
+  background-color: #0b1120;
+  background: radial-gradient(circle at top, #1f2a6d, #0b1222 60%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: linear-gradient(180deg, rgba(13, 27, 45, 0.9), rgba(6, 9, 22, 0.95));
+}
+
+.login-page {
+  width: 100%;
+  max-width: 460px;
+}
+
+.login-card {
+  background: rgba(249, 250, 251, 0.04);
+  border: 1px solid rgba(226, 232, 240, 0.15);
+  border-radius: 24px;
+  padding: 32px 36px;
+  box-shadow: 0 25px 60px rgba(11, 16, 30, 0.7);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff75a0, #ff9a00);
+  font-size: 26px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #f8fafc;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  color: rgba(241, 245, 249, 0.7);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.form-field span {
+  font-size: 0.85rem;
+  color: rgba(241, 245, 249, 0.6);
+}
+
+.form-field input {
+  width: 100%;
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: rgba(15, 23, 42, 0.6);
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.form-field.has-error input {
+  border-color: #f97316;
+}
+
+.field-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: rgba(241, 245, 249, 0.65);
+}
+
+.checkbox-wrapper input {
+  width: 16px;
+  height: 16px;
+}
+
+.ghost-link {
+  color: rgba(56, 189, 248, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.success-text {
+  margin: 0 0 12px;
+  color: #34d399;
+  font-size: 0.9rem;
+}
+
+.error-text {
+  margin: 0;
+  color: #f87171;
+  font-size: 0.85rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0b1222;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.submit-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.4);
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .brand h1 {
+    font-size: 1.4rem;
+  }
+}
