@@ -1,9 +1,14 @@
 import { useState } from "react";
 
 const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+const strongPasswordPattern = /(?=.*[A-Z])(?=.*\d).{8,}/;
 
 const validate = (values) => {
   const issues = {};
+
+  if (!values.fullName.trim()) {
+    issues.fullName = "Full name is required.";
+  }
 
   if (!values.email) {
     issues.email = "Email is required.";
@@ -15,17 +20,34 @@ const validate = (values) => {
     issues.password = "Password is required.";
   } else if (values.password.length < 8) {
     issues.password = "Password must be at least 8 characters.";
+  } else if (!strongPasswordPattern.test(values.password)) {
+    issues.password = "Include at least one uppercase letter and number.";
+  }
+
+  if (!values.confirmPassword) {
+    issues.confirmPassword = "Please confirm your password.";
+  } else if (values.password && values.confirmPassword !== values.password) {
+    issues.confirmPassword = "Passwords do not match.";
+  }
+
+  if (!values.terms) {
+    issues.terms = "You must agree to the terms of service.";
   }
 
   return issues;
 };
 
-function LoginPage() {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-    rememberMe: false
-  });
+const initialForm = {
+  fullName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  marketing: false,
+  terms: false
+};
+
+function RegisterPage() {
+  const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,35 +69,8 @@ function LoginPage() {
     }));
   };
 
+  const texhologs = 'success'
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validations = validate(form);
-    setErrors(validations);
-    setTouched({
-      email: true,
-      password: true
-    });
-
-    if (Object.keys(validations).length === 0) {
-      setIsSubmitting(false);
-      setStatusMessage("Signed in success. Welcome back!");
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setStatusMessage("Signing in...");
-      }, 1200);
-    }
-  };
-
-  const hasErrors = Object.keys(errors).length > 0;
-
-  return (
-    <section className="auth-page login-page" aria-live="polite">
-      <div className="login-card">
-        <div>[brand]</div>
-        <title>Examplose</title></div>
-      </div>
-    </section>
-    );
-}
-
-export default LoginPage;
+    const handleBlur is=true

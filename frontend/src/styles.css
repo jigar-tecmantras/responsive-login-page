@@ -22,18 +22,57 @@ body {
   background: linear-gradient(180deg, rgba(13, 27, 45, 0.9), rgba(6, 9, 22, 0.95));
 }
 
-.login-page {
+.view-switch {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.switch-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 10px 26px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.6);
+  color: rgba(226, 232, 240, 0.85);
+  cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease;
+}
+
+.switch-btn:hover {
+  border-color: rgba(56, 189, 248, 0.8);
+}
+
+.switch-btn.active {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #0b1222;
+  border-color: transparent;
+  box-shadow: 0 10px 20px rgba(14, 165, 233, 0.35);
+  transform: translateY(-1px);
+}
+
+.auth-page {
   width: 100%;
   max-width: 460px;
 }
 
-.login-card {
+.login-page {
+  margin: 0 auto;
+}
+
+.login-card,
+.register-card {
   background: rgba(249, 250, 251, 0.04);
   border: 1px solid rgba(226, 232, 240, 0.15);
   border-radius: 24px;
   padding: 32px 36px;
   box-shadow: 0 25px 60px rgba(11, 16, 30, 0.7);
   backdrop-filter: blur(16px);
+}
+
+.register-card {
+  border-color: rgba(56, 189, 248, 0.25);
 }
 
 .brand {
@@ -112,11 +151,16 @@ body {
   gap: 8px;
   font-size: 0.9rem;
   color: rgba(241, 245, 249, 0.65);
+  margin-bottom: 16px;
 }
 
 .checkbox-wrapper input {
   width: 16px;
   height: 16px;
+}
+
+.checkbox-wrapper.has-error span {
+  color: #f87171;
 }
 
 .ghost-link {
@@ -162,9 +206,19 @@ body {
 }
 
 @media (max-width: 600px) {
-  .login-card {
+  .app-shell {
+    padding: 20px;
+  }
+
+  .login-card,
+  .register-card {
     padding: 28px 20px;
     border-radius: 18px;
+  }
+
+  .view-switch {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .brand h1 {
